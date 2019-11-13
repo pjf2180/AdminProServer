@@ -11,6 +11,7 @@ var userSchema = new Schema({
     password: { type: String, required: [true, 'Password is required'] },
     img: { type: String, required: false },
     role: { type: String, required: true, default: 'USER_ROLE', enum: validRoles },
+    googleuser: { type: Boolean, default: false }
 })
 userSchema.plugin(uniqueValidator, { message: 'User {PATH} must be unique' });
 module.exports = mongoose.model('User', userSchema);
